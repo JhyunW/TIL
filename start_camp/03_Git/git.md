@@ -58,9 +58,25 @@ $
 ## 깃허브 보낼때 주의 사항
     1. 이름과 이메일 주소 설정하기
     2. 로그인 아이디 확인하기
-    3. 깃허브 주소 쓰기
+    3. 깃허브 주소 쓰기 확인법 : git remote -v
     4. 푸시 잊지말기
     ```bash
     $ git remote add origin https://github.com/JhyunW/TIL.git
     $ git push -u origin master
     ```
+
+## 깃허브 불러온게 정보가 같은지 확인법
+```bash
+$ git log --oneline
+```
+
+## 깃허브 불러오기
+원하는 폴더를 깃bash 로 연 후
+```bash
+$ git clone {깃허브주소}
+```
+
+### 원격 저장주소 삭제법
+```bash
+git remote remove {주소이름}
+```
