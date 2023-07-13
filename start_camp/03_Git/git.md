@@ -61,6 +61,6 @@ $
     3. 깃허브 주소 쓰기
     4. 푸시 잊지말기
     ```bash
-    $ git remote add origin gttps://github.com/JhyunW/TIL.git
+    $ git remote add origin https://github.com/JhyunW/TIL.git
     $ git push -u origin master
     ```
