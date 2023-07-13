@@ -33,3 +33,24 @@ git config --global --list
 ```bash
 $ git log
 ```
+## 직전에 올린 파일(커밋) 이름 바꾸는법
+
+```bash
+$ git commit --amend
+```
+
+그 후 'insert' 버튼 누르고 원하는 부분 고친 후 ESC
+
+:wq 입력 (write quit)
+
+## git log 에서 나오는법
+:q
+
+## git 설정 초기화
+```bash
+# vim을 활용하여 설정 제거하기
+# vim 으로 git 설정 파일 열기 바탕화면의 전 단계에서.
+$ vim ~/. gitconfig
+# insert -> : 누르기 -> 
+$
+```
