@@ -54,3 +54,13 @@ $ vim ~/. gitconfig
 # insert -> : 누르기 -> 
 $
 ```
+
+## 깃허브 보낼때 주의 사항
+    1. 이름과 이메일 주소 설정하기
+    2. 로그인 아이디 확인하기
+    3. 깃허브 주소 쓰기
+    4. 푸시 잊지말기
+    ```bash
+    $ git remote add origin gttps://github.com/JhyunW/TIL.git
+    $ git push -u origin master
+    ```
