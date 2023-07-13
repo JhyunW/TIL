@@ -26,5 +26,10 @@ $ git commit -m "commit message"
 ```bash
 git config --global user.email "chiru7080@daum.net"
 git congif --global user.name "장현욱"
+git config --global --list
+```
 
+### 커밋 기록 확인하기
+```bash
+$ git log
 ```
