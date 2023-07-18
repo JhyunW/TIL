@@ -1,7 +1,6 @@
 ch_list = [[] * 8 for i in range(8)] #체스 판 생성
 
 for z in range(8): # 체스 말 새우기
-    line = " "
     line = str(input())
     ch_list[z] = line
 
@@ -10,14 +9,14 @@ for z in range(8): # 체스 말 새우기
 
 count_01 = 0
 for x in range(0, 8, 2):
-    for c in range(8, 2):
-        ch_one = ch_list[x][0][c : c+1]
-        if ch_list[x][0][c : c+1] == "F":
+    for c in range(0, 8, 2):
+        ch_one = ch_list[x][c]
+        if ch_one == "F":
             count_01 += 1
 
 for v in range(1, 8, 2):
-    for b in range(1, 8 ,2):
-        ch_one = ch_list[v][0][b : b+1]
+    for b in range(1, 8, 2):
+        ch_one = ch_list[v][b]
         if ch_one == "F":
             count_01 += 1
 
