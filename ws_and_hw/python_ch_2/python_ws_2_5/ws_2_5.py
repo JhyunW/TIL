@@ -22,7 +22,7 @@ catalog[3] = ['성공을 향한 한 걸음', '내 삶의 변화', '목표 달성
 
 print('catalog와 backup_catalog를 비교한 결과')
 # 식별 연산자로 catalog와 backup_catalog를 비교한 결과를 출력하시오. 
-print(backup_catalog == catalog)
+print(backup_catalog is catalog)
 
 print('backup_catalog : ')
 print(backup_catalog)
