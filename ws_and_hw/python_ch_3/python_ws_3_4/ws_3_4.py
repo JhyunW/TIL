@@ -1,9 +1,10 @@
-number_of_people = [0]
+number_of_people = 0
 
 
 def increase_user(human):
+    global number_of_people
     print(f"{human}님 환영합니다!")
-    number_of_people[0] += 1
+    number_of_people += 1
     pass
 
 def create_user(name, age, address):
@@ -17,6 +18,7 @@ address = ['서울', '강릉', '조선', '나주', '한성부']
 
 
 print(list(map(create_user, name, age, address)))
+print(number_of_people)
 
 
 #글로벌 명령어 사용하기
