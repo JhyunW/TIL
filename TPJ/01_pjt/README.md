@@ -1,4 +1,6 @@
-# problem1
+# finace
+
+## problem1
 ```python
    def get_deposit_products():
     # 본인의 API KEY 로 수정합니다.
@@ -16,7 +18,7 @@
   3. key 값만 뽑는다는걸 이해를 잘못해서 keys() 함수를 빼먹음 주의하기
 
 
-# problem2
+## problem2
 ```python
 def get_deposit_products():
     # 본인의 API KEY 로 수정합니다.
@@ -33,7 +35,7 @@ def get_deposit_products():
 1. 마찬가지로 리퀘스트 받는부분 잊지말걸
 2. 딕셔너리 접속 방법 숙지할것
 
-# problem3
+## problem3
 ```python
 def get_deposit_products():
     # 본인의 API KEY 로 수정합니다.
@@ -53,7 +55,7 @@ def get_deposit_products():
 ```
 1. 새로운 시도로 원하는 값을 뽑아서 리스트 안에딕셔너리를 넣는 코드 숙지하기 처음 짜기가 어려웠음
 
-# problem4
+## problem4
 ```python
 def get_deposit_products():
     # 본인의 API KEY 로 수정합니다.
@@ -99,3 +101,81 @@ def get_deposit_products():
 ## 어려웠던점들
   1. 딕셔너리끼리 합치기가 좀 힘들었음 딕셔너리 합치는 명령어 숙지하기
   2. 문제 이해도 부족 : 책을 많이 읽던가 해야함.
+
+  --------------------------------------------------------------------
+
+  # movie
+
+  ## problem 1
+    - 디렉토리 위치 확인 잘하자 이거때문에 몇분을 헤매고 있던건지 모른다..
+    - 새로 지정을 해주는 방법은 불러오는 json의 변수명[키값] 식으로 불러오자
+
+  ```python
+  import json
+  from pprint import pprint
+
+
+
+  def book_info(book):
+    
+    book_info = {'id' : book['id'],
+                 'name' : book["title"],
+            'author' : book['author'],
+            'priceSales' : book['priceSales'],
+            'description' : book['description'],
+            'cover' : book['cover'],
+            'categoryId' : book['categoryId']
+            }
+    
+    return book_info
+    # 여기에 코드를 작성합니다.  
+
+
+  # 아래의 코드는 수정하지 않습니다.
+  if __name__ == '__main__':
+     book_json = open('data/book.json', encoding='utf-8')
+     book = json.load(book_json)
+    
+     pprint(book_info(book))
+
+  ```
+
+    ## problem2
+    - 카테고리번호만 알고서 .json 에서 불러오는 방법을 몰라 for문을 돌려 찾도록 하였다.
+    - 카테고리에서 key의 이름들이 다 같을때 원하는 key를 불러오는 방법을 찾기가 힘들었다.
+    ```python
+        import json
+    from pprint import pprint
+
+
+    def book_info(book, categories):
+        book_teg_name = []
+        for book_cate in categories:
+            if book_cate['id'] in book['categoryId']:
+                book_teg_name.append(book_cate['name'])
+
+        book_info = {'id' : book['id'],
+                     'name' : book["title"],
+                'author' : book['author'],
+                'priceSales' : book['priceSales'],
+                'description' : book['description'],
+                'cover' : book['cover'],
+                'categoryName' : book_teg_name
+                }
+
+        return book_info
+        # 여기에 코드를 작성합니다.  
+
+
+
+
+    # 아래의 코드는 수정하지 않습니다.
+    if __name__ == '__main__':
+        book_json = open('data/book.json', encoding='utf-8')
+        book = json.load(book_json)
+
+        categories_json = open('data/categories.json', encoding='utf-8')
+        categories_list = json.load(categories_json)
+
+        pprint(book_info(book, categories_list))
+    ```

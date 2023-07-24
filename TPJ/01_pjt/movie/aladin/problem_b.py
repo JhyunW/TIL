@@ -3,7 +3,21 @@ from pprint import pprint
 
 
 def book_info(book, categories):
-    pass
+    book_teg_name = []
+    for book_cate in categories:
+        if book_cate['id'] in book['categoryId']:
+            book_teg_name.append(book_cate['name'])
+            
+    book_info = {'id' : book['id'],
+                 'name' : book["title"],
+            'author' : book['author'],
+            'priceSales' : book['priceSales'],
+            'description' : book['description'],
+            'cover' : book['cover'],
+            'categoryName' : book_teg_name
+            }
+    
+    return book_info
     # 여기에 코드를 작성합니다.  
 
         
