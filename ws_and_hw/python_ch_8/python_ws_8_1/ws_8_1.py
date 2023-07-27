@@ -7,9 +7,9 @@ class Animal:
     def __init__(self):
         Animal.num_of_animal += 1 # 클래스 속성 정의
 
-    @classmethod
-    def num_plus(self):
-        self.num_of_animal += 1
+    # @classmethod
+    # def num_plus(self):
+    #     self.num_of_animal += 1
 
 class Dog(Animal):
 
