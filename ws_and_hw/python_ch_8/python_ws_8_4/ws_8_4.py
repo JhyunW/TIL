@@ -1,21 +1,33 @@
-class Pet(Dog, Cat):
-    def __init__(self, sound):
-        self.sound = sound
+class Animal:
+    num_of_animal = 0
+    def __init__(self):
+        Animal.num_of_animal += 1
 
-    def play(self):
+
+class Dog(Animal):
+    def bark(self):
+        print('멍 멍 !')
+
+
+class Cat(Animal):
+    def meow(self):
+        print('야 옹 !')
+        
+class Pet(Dog, Cat):
+    def __init__(cls, sound):
+        cls.sound = sound
+    def access_num_of_animal(cls):
+        cls.num_of_animal
+    
+    def make_sound(cls):
+        print(cls.sound)
+
+    def play(cls):
         print('애완동물과 놀기')
 
-    def make_sound(self):
-        print(self.sound)
-
-    @classmethod
-    def access_num_of_animal(cls):
-        return cls.num_of_animal
-    pass
 
 pet1 = Pet("그르르")
 pet1.make_sound()
 pet1.bark()
 pet1.meow()
 pet1.play()
-print(Animal.num_of_animal)
