@@ -6,8 +6,8 @@
 
 t = int(input()) # test case
 
-for test_case in range(t): # 테스트 케이스 반복문
-    
+for test_case in range(1, t + 1): # 테스트 케이스 반복문
+
     day = int(input()) # 몇일을 알고 있는지 날짜 입력
 
     day_price = [] # 날짜별 가격을 저장할 리스트
@@ -21,9 +21,8 @@ for test_case in range(t): # 테스트 케이스 반복문
     for day_in in day_price[::-1]: # 마지막 날부터 비교를 해간다고 가정
         if high_price < day_in:  # 미래의 가격이 현재의 가격보다 비쌀경우
             high_price = day_in  # 가장 높은 가격이므로 가장 높은 가격 변수에 저장
-        
+
         elif high_price > day_in: # 미래의 가격이 현재의 가격보다 싼 경우
             profit += high_price - day_in # 미래의 가격에서 현재 가격을 뺀 남은 수를 이윤에 더하기
 
-    print(f'#{test_case + 1} {profit}') # 출력
-        
+    print(f'#{test_case} {profit}') # 출력

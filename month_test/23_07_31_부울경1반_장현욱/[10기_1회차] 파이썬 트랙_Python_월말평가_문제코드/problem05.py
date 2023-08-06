@@ -3,7 +3,7 @@
 # 내장 함수 sum 함수를 사용하지 않습니다.
 # 사용시 감점처리 되니 반드시 확인 바랍니다.
 def change_pwd(word, secret_code):
-    result = ' ' # 결과를 담을 공간
+    result = '' # 결과를 담을 공간
     for i in word: # word에 입력된 문자열을 하나씩 반복문을 돌림
         result += str(secret_code[i]) # 해당 키에 있는 벨류를 문자열로 반환후 추가
     return result # 결과 반환
