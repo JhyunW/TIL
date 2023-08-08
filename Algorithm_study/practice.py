@@ -1,30 +1,26 @@
-# SWe Expert
+for tc in range(1, 11):  # 테스트 횟수
+    arr = [[] for _ in range(8)]  # 8줄의 리스트 생성
 
-# 2001_파리퇴치
+    word_len = int(input())  # 비교 문장 길이
 
-# N * N 배열 안에 파리의 숫자 제시
-# M * M 크기의 파리채를 한번 내리쳐 최대한 많은 파리를 잡아야함
+    for q in range(8):
+        arr[q].append(input())  # 리스트에 입력
 
-T = int(input())
+    result = 0  # 대칭되는 문자열 수
 
-for tc in range(1, T+1):
-    N, M = map(int, input().split())  # 배열의 범위
+    for w in range(8):  # 가로열 비교 반복문
+        for w_1 in range(8 - word_len + 1):
+            if arr[w][w_1 : w_1 + word_len] == arr[w][w_1 : w_1 + word_len][::-1]:  # 문자열을 뒤집어도 똑같을시
+                result += 1
 
-    arr = [[0] * N for _ in range(N)]  # 리스트 생성
+    for e in range(8 - word_len + 1):  # 세로열 비교
+        for e_1 in range(8):
+            e_arr = []
+            for e_2 in range(word_len):
+                e_arr.append(arr[e + e_2][e_1])
 
-    best_count = 0
+            if e_arr == e_arr[::-1]:
+                result += 1
 
-    for arr_num in range(N):  # 각각의 리스트에 숫자 생성
-        arr[arr_num] = list(map(int, input().split()))
+    print(f'#{tc} {result}')
 
-    for hunt_pointx in range(0, N-M+1):  # 0 ~ N-M번째 범위까지
-        for hunt_pointy in range(0, N-M+1):
-            count = 0
-            for hunt_x in range(M):
-                for hunt_y in range(M):
-                    count += arr[hunt_pointx + hunt_x][hunt_pointy + hunt_y]
-
-            if best_count < count:
-                best_count = count
-
-    print(f'#{tc} {best_count}')
