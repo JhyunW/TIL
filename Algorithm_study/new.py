@@ -1,3 +1,9 @@
-a = [2, 4, 5, 1, 6, 2, 4, 7, 8]
-a_ = sorted(a)
-print(a_)
+e_arr = ['b''b''c''a']
+result = 0
+e_result = [''.join(e_arr)]
+print(e_result)
+print(e_result[0][::-1])
+if e_result == e_result[::-1]:
+    result += 1
+
+print(result)
