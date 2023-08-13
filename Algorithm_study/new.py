@@ -1,4 +1,3 @@
-a = [[0],[0]]
-a[0].append(3)
-a[0].append(3)
-print(a)
+arr = [[] for _ in range(5)]  # N줄
+
+print(arr)

@@ -17,8 +17,6 @@ def graph(start):
         if data[start][next] and not visited[next]:
             graph(next)  # 함수를 next번 부터 다시 실행행
 
-
-
 T = int(input())
 for tc in range(1, T+1):
     V, E = map(int,input().split())

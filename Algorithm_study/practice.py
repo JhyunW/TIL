@@ -1,21 +1,35 @@
-# SW Expert
-# 파스칼의 삼각형
+# 숫자 카드
 
-# 크기가 N인 파스칼의 삼각형을 만들려고함 즉 N줄의 삼각형
-# 철 번째 줄은 항상 숫자 1 임
-# 두번째 줄부터는 각 숫자들은 자신의 왼쪽과 오른쪽 위의 숫자의 합으로 구성
+# 0~9까지 숫자가 적힌 N장의 카드가 주어진다.
+# 가장 많은 카드에 적힌 숫자와 카드가 몇 장인지 출력하는 프로그램을 만드시오.
+# 카드 장수가 같을때는 적힌 숫자가 큰 쪽을 출력
+
 
 T = int(input())  # 테스트 케이스
-
+move_x = [-1, 0, 1, 0]  # 위 왼 아 오
+move_y = [0, -1, 0, 1]
 for tc in range(1, T+1):
-    N = int(input())
-    arr = [[] * N for _ in range(N)]
+    N, M = map(int, input().split())
+
+    arr = [[] for _ in range(N)]  # N줄
+
     for i in range(N):
-        for q in range(i+1):
-            if q == 0 or i == q:
-                arr[i].append(1)
-            else:
-                arr[i].append(arr[i-1][q-1] + arr[i-1][q])
-    print(f'#{tc}')
-    for w in arr:
-        print(*w)
+        arr[i] = list(map(int, input().split()))
+    
+
+    best = 0
+
+    for x in range(N):
+        for y in range(M):
+            plus = arr[x][y]
+            for move in range(4):
+                for q in range(1, arr[x][y]+1):
+                    xx, yy = x + (move_x[move] * q), y + (move_y[move] * q)
+                    if 0 <= xx < N and 0 <= yy < M:
+                        plus += arr[xx][yy]
+            
+            if best < plus:
+                best = plus
+    
+    print(f'#{tc} {best}')
+

@@ -19,6 +19,6 @@ for q in M_num:  # 찾는 부품들 순회
             end = mid - 1  # 중간 값보다 작다면 끝 지점을 mid-1로 교체
 
     if result == 0:
-        print('no', end = ' ')
+        print('no', end=' ')
     else:
-        print('yes', end = ' ')
+        print('yes', end=' ')

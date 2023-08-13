@@ -1,3 +1,4 @@
+# 4861 회문
 # N * M 글자판에서 길이가 M인 회문을 찾아 출력하는 프로그램
 
 T = int(input())  # 테스트 횟수
@@ -8,11 +9,11 @@ for tc in range(1, T+1):
     for i in range(N):  # 각 줄마다 문장 입력
         arr_in = str(input())
         for i_2 in range(N):
-            arr[i][i_2] = arr_in[i_2]  # 각각의 자리에 글자 넣어주기
-    result =''
+            arr[i][i_2] = arr_in[i_2]  # 각각의 자리에 글자 넣어주기 오늘 알았는데 이 과정 처음 인풋할때 리스트를 넣어 생략가능
+    result =''  # 빈 결과변수 생성
 
     # 가로열 비교
-    for q in range(N):
+    for q in range(N):  
         for q_1 in range(N-M+1):
             x_str = ''
             for q_2 in range(M):
