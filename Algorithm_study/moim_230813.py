@@ -4,7 +4,9 @@
 # 이때 X도시로부터 출발하여 도달할 수 있는 최단 거리가K인
 # 모든 도시의 번호를 출력하는 프로그램을 작성하세요.
 
+
 def short_move(city):
+    # 가지치는 코드 추가
     visited[city] = 1  # 시작점은 방문을 한 것이므로 방문 하였다는 표시를 찍는다.
     G = [X]  # 4번째 도착이 가능한 도시들을 넣기 위한 리스트
     for move_count in range(K):  # 길을 탐색할 횟수
@@ -26,7 +28,6 @@ N, M, K, X = map(int, input().split())
 arr = []  # 노드와 노선을 기록할 리스트
 for i in range(M):  # 노선의 갯수만큼 출발 노드와 도착 노드 입력 = 경로
     arr += list(map(int, input().split()))
-
 visited = [0] * (N+1)  # 몇번 노드를 방문하였는지 확인하는 리스트
 
 # 몇번노드(리스트)가 몇번 노드(인덱스)로 가는지 기록된 데이터
@@ -35,4 +36,7 @@ data = [[0] * (N+1) for _ in range(N + 1)]
 for q in range(0, M*2, 2):  # 데이터에 어디서 어디로 이어지는지 기록
     data[arr[q]][arr[q+1]] = 1  # 
 count = 0  # 4번째를 찾기위한 카운트
-print(*short_move(X))  # 결과 출력
+result = short_move(X)
+for asd in result:
+    print(asd)
+# print(*short_move(X))  # 결과 출력
