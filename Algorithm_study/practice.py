@@ -1,5 +1,5 @@
-arr = []
-for i in range(5):
-    arr.append(list(map(int, input().split())))
+check = [421]
+arr = '156'
 
-print(arr)
+print(arr[1])
+print(arr[2])
