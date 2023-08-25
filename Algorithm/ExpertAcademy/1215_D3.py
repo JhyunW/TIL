@@ -36,7 +36,7 @@ def palindrome(s, word_length): # 문자열이 회문인지 비교하는 함수
 
 
 for tc in range(1, 11):  # 테스트 횟수
-    arr = [[] for _ in range(8)] # 8줄의 리스트 생성
+    arr = [[] for _ in range(8)]  # 8줄의 리스트 생성
 
     word_len = int(input())
 
@@ -49,7 +49,7 @@ for tc in range(1, 11):  # 테스트 횟수
 
     for e in range(8):  # 세로 단어들 비교
         for e_1 in range(8-word_len+1):  # 리스트 범위를 벗어나지않게 범위를 8 - word_len + 1로 지정
-            word_x =''  # 단어를 합칠 공간
+            word_x = ''  # 단어를 합칠 공간
             for r in range(word_len):  # 단어 길이반큼 반복해서 단어 합치기
                 word_x += arr[e][e_1+r]
 

@@ -1,7 +1,6 @@
 # SW Expert
 # 1216_회문2
-# import sys
-# sys.stdin = open('input.txt')
+
 for t in range(1, 11):
     tc = int(input())  # 테스트 케이스 번호
     arr_x = []  # 정식배열
@@ -15,23 +14,21 @@ for t in range(1, 11):
             trash += arr_x[i2][i1]
         arr_y.append(trash)
 
+    start = 0
     end = 2
+
     for q in range(100):
-        start = 0
         move = 0
-        while end + start < 100:
-            a = arr_x[q][start:end+move]
-            b = arr_y[q][start:end+move]
+        while end + move < 100:
+            a = arr_x[q][move:end+move]
+            b = arr_y[q][move:end+move]
             if a == a[::-1] or b == b[::-1]:
-                best = end + move - start
-                end = best  # 늘리고 그자리 다시 탐색
-                end += 1
-                move = 0
-                start = 0
+                if best < end:
+                    best = end
+                end += 1  # 늘리고 그자리 다시 탐색
+
             else:
                 move += 1
-            if end + move >= 100:
-                start += 1
-                move = 0
 
     print(f'#{tc} {best}')
+
