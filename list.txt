@@ -1,0 +1,17 @@
+.#..#??-?...
+........
+...???.#.
+.bashrc
+.gitignore
+.idea
+Algorithm
+Algorithm_study
+list.txt
+month_test
+pycharm
+Python_study
+README.md
+start_camp
+TPJ
+ws_and_hw
+테스트확인.txt

@@ -1,3 +1,14 @@
+import sys
+sys.stdin = open('input.txt')
+
+# SW Expert
+# 1860_진기의 최고급 붕어빵
+
+# 0초부터 붕어빵을 만들며, M초의 시간을 들여 K개의 붕어빵을 만들 수 있음
+# 0초 이후에 손님들이 언제도착하는지 주어지면 모든 손님들에게 기다리는 시간 없이
+# 붕어빵 제공이 가능한지 판별하는 코드 작성
+# 즉 손님이 기다리는 시간이 없이 K개의 붕어빵이 제공이 가능한지 판별
+
 T = int(input())  # 테케
 
 for tc in range(1, T+1):
@@ -15,7 +26,7 @@ for tc in range(1, T+1):
           break
         if i != 0 and i % M == 0:
             box += K  # 일정 시간마다 K개의 붕어빵 더하기
-        while N_time[0] == i:
+        while N_time and N_time[0] == i:
             if box == 0:
                 result = 'Impossible'
                 break  # 박스에 붕어빵이 없을 경우 while문 종료
