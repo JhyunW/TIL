@@ -1,25 +1,32 @@
-T = int(input())  # 테케
+# SW Expert
+# 5188_최소합
+move_x = [0, 1]  # 오른쪽 아래쪽
+move_y = [1, 0]
+def search(x, y):
+    global start
+    global small
+    for q in range(2):  # 이동, 해당 위치의 숫자 더하기
+        if x < N and y < N and data[x][y] == 0:
+            start += arr[x][y]
+            data[x][y] = 1  # 이동한 길 좌표 찍기
+            # 여기서 불러와야함.
+            if x == N-1 and y == N-1:
+                if small > start:  # 현재의 최소와 비교했을시 더 작으면
+                    small = start  # 최소 숫자 할당
+                    continue
+        if x + move_x[q] < N and y + move_y[q] < N:
+            search(x + move_x[q], y + move_y[q])
+
+    data[x][y] = 0  # 반복문 마지막에 데이터 현재좌표 0으로 초기화
+    start -= arr[x][y]  # 현재 좌표 숫자 빼기
+
+T = int(input())  # 테스트케이스
 
 for tc in range(1, T+1):
-    N, M, K = map(int, input().split())  # N명의 고객, M초 마다 K개의 붕어빵
-    N_time = sorted(list(map(int, input().split())))  # 고객들의 도착 시간
-
-    box = 0  # 붕어빵 보관함
-    result = 'Possible' # 결과
-    go = N_time[-1]
-
-    if N_time[-1] == 0 and M != 0:  # 오픈런 반례
-        result = 'Impossible'
-    for i in range(go+1):  # 손님이 오는 시간의 가장 마지막 시간까지 반복
-        if result == 'Impossible':  # box가 음수로 가면 for문 종료 또는 고객이 다 빠졌을시
-          break
-        if i != 0 and i % M == 0:
-            box += K  # 일정 시간마다 K개의 붕어빵 더하기
-        while N_time[0] == i:
-            if box == 0:
-                result = 'Impossible'
-                break  # 박스에 붕어빵이 없을 경우 while문 종료
-            else:
-              box -= 1
-              N_time.pop(0)
-    print(f'#{tc} {result}')
+    N = int(input())  # N * N 배열
+    arr = [list(map(int, input().split())) for _ in range(N)]  # N 줄에 걸쳐 입력
+    data = [[0] * N for _ in range(N)]
+    start = 0  # 시작지점 숫자 저장
+    small = 999999  # 숫자를 저장할 공간
+    search(0, 0)
+    print(f'#{tc} {small}')

@@ -10,14 +10,14 @@ knight = []
 for i in range(36):
     knight.append(input())  # 나이트의 좌표 순서
 
-for q in range(len(knight)):
+for q in range(len(knight)):  # 나이트의 체스판 좌표를 배열 좌표로 그대로 옮기기
     for q1 in range(6):
         if knight[q][0] == move_y[q1]:
             knight[q] = [(int(knight[q][1]) - 6) * -1, q1]  # x와 y좌표
             break  # 좌표를 찾고 다음 좌표 탐색
-start = knight[0]
-data = [knight[0]]
-now = knight[0]
+start = knight[0]  # 나중에 돌아올때를 위한 시작 지점 체크
+data = [knight[0]]  # 방문 기록 체크
+now = knight[0]  # 지금의 나이트 위치 표시
 result = 'Valid'
 for w in range(1, 36):
     safe = 0
@@ -30,11 +30,12 @@ for w in range(1, 36):
     if safe == 0:  # 만약 맞는 위치에 없을 시
         result = 'Invalid'
         break
-for e in range(8):
-    if [now[0]+k_x[e], now[1]+k_y[e]] != start:
-        result = 'Invalid'
-    else:
-        result = 'Valid'
-        break
+if result == 'Valid':
+    for e in range(8):
+        if [now[0]+k_x[e], now[1]+k_y[e]] != start:
+            result = 'Invalid'
+        else:
+            result = 'Valid'
+            break
 print(result)
 
