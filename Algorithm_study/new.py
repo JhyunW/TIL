@@ -1,32 +1,23 @@
-# SW Expert
-# 5188_최소합
-move_x = [0, 1]  # 오른쪽 아래쪽
-move_y = [1, 0]
-def search(x, y):
-    global start
-    global small
-    for q in range(2):  # 이동, 해당 위치의 숫자 더하기
-        if x < N and y < N and data[x][y] == 0:
-            start += arr[x][y]
-            data[x][y] = 1  # 이동한 길 좌표 찍기
-            # 여기서 불러와야함.
-            if x == N-1 and y == N-1:
-                if small > start:  # 현재의 최소와 비교했을시 더 작으면
-                    small = start  # 최소 숫자 할당
-                    continue
-        if x + move_x[q] < N and y + move_y[q] < N:
-            search(x + move_x[q], y + move_y[q])
+# # 10개의 원소중 3개를 고르는 조합  N - 3까지
 
-    data[x][y] = 0  # 반복문 마지막에 데이터 현재좌표 0으로 초기화
-    start -= arr[x][y]  # 현재 좌표 숫자 빼기
+# def nCr(n,r,s):  # n 개에서 r개를 고르는 조합, s 선택할 수 있는 구간의 시작
+#     if r == 0:
+#         print(*comb)
+#     else:
+#         for i in range(s, n-r+1):
+#             comb[r-1] = A[i]
+#             nCr(n, r-1, i+1)
 
-T = int(input())  # 테스트케이스
+# A = [1, 2, 3, 4, 5]
+# N = len(A)
+# R = 3
+# comb = [0] * R
+# nCr(N, R, 0)
 
-for tc in range(1, T+1):
-    N = int(input())  # N * N 배열
-    arr = [list(map(int, input().split())) for _ in range(N)]  # N 줄에 걸쳐 입력
-    data = [[0] * N for _ in range(N)]
-    start = 0  # 시작지점 숫자 저장
-    small = 999999  # 숫자를 저장할 공간
-    search(0, 0)
-    print(f'#{tc} {small}')
+arr = [list(map(str, input().split()))]
+number = []
+for i in arr[0][0]:  # 리스트에 숫자를 하나씩 대입
+    number.append(int(i))
+data = [0] * len(arr[0][0])
+for q in range(len(number)-1, -1, -1):
+    print(number[q])
