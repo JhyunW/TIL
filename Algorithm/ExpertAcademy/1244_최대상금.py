@@ -1,39 +1,48 @@
 # SW Expert
-#1244_최대 상금
+# 1244_최대 상금
 import copy
+
 
 def change(N, re):
     stack = [N]
-    stack_ing = []
-    for q in range(re):
-        while stack:
-            original = stack.pop(0)
+    stack_ing = set()
+    for _ in range(re):
+        for original in stack:
+            original = list(original)
             ori = copy.deepcopy(original)
-            for w in range(len(original)-1):
-                for w1 in range(w+1, len(original)):
-                    ori[w], ori[w1] = ori[w1], ori[w]
-                    stack_ing.append(ori)
-                    ori = copy.deepcopy(original)
-        stack = stack_ing
-        stack_ing = []
+            for left in range(len(original) - 1):
+                for right in range(left + 1, len(original)):
+                    if ori[left] < ori[right]:
+                        ori[left], ori[right] = ori[right], ori[left]
+                        ori_str = ''.join(ori)
+                        if ori_str not in stack_ing:
+                            stack_ing.add(ori_str)
+                        ori = copy.deepcopy(original)
+
+        stack = list(stack_ing)
+
+        if not stack:
+            check = [0] * 10
+            for n in ori:
+                check[int(n)] += 1
+                if check[int(n)] >= 2:
+                    stack.append(ori)
+                    break
+            else:
+                ori[-1], ori[-2] = ori[-2], ori[-1]
+                stack.append(ori)
+        stack_ing = set()
+
     best = 0
     for e in stack:
-        mid = ''
-        for e1 in e:
-            mid += e1
-        if best < int(mid):
-            best = int(mid)
+        best = max(best, int(''.join(e)))
+
     print(f'#{tc} {best}')
 
 
-
 T = int(input())  # 테케
-for tc in range(1, T+1):
-    arr = [list(map(str, input().split()))]
-    number = []
-    for i in arr[0][0]:  # 리스트에 숫자를 하나씩 대입
-        number.append(i)
-    nu = copy.deepcopy(number)
-    data = [0] * len(arr[0][0])
+for tc in range(1, T + 1):
+    number, r = input().split()
 
-    change(number, int(arr[0][1]))
+    # number = list(number)
+    change(number, int(r))
