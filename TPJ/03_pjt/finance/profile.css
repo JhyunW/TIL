@@ -1,0 +1,146 @@
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 30px;
+}
+/* 네브바 옵션 */
+.navbar-nav{
+  padding: 5px 100px;
+}
+
+.nav-item {
+  padding: 5px 10px;  
+}
+
+.sticky {
+  opacity: 0.5;
+  position: sticky !important;
+  padding-top: 20px !important;
+  top: -40px;
+}
+
+.sticky:hover {
+  opacity: 1;
+}
+
+.blank_white {
+  background: transparent;
+  width: 40%;
+  height: 64px;
+}
+
+
+/* 공간 할당 */
+.mainpage {
+  height: 800px;
+  background-color: skyblue;
+}
+.who {
+  height: 800px;
+  background-color: rgb(192, 227, 241);
+}
+.skills {
+  height: 800px;
+  background-color: skyblue;
+}
+.Achievements {
+  height: 800px;
+  background-color: rgb(192, 227, 241);
+}
+.Question {
+  height: 800px;
+  background-color: skyblue;
+}
+
+/* 메인 글씨체 */
+.typer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(/React-PortFolio/static/media/1.88d07c4d.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  width: 100%;
+}
+
+/* 네임카드 */
+.card {
+  background-color: #fff;
+  box-shadow: 1px 1px 8px 1px rgba(0,0,0,.25);
+  margin: 20px auto;
+  padding-bottom: 40px;
+  width: 80%;
+  padding-left: 100px;
+  padding-right: 100px;  
+}
+
+.card:after {
+  content: "";
+  display: block;
+  width: 60%;
+}
+
+.card_name {
+  text-align: center;
+}
+
+.card_in {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
+.face {
+border-radius: 50%;
+    display: flex;
+    height: 320px;
+    width: 240px;
+}
+
+.about_me {
+  color: rgba(0,0,0,.7);
+    font-size: 16px;
+    width: 300px;
+}
+
+.about_text{
+  align-items: center;
+    display: flex;
+    margin-bottom: 12px;
+}
+
+
+/* 버튼 옵션 지울거 지우기 */
+.navbar-nav li a{
+  transition: all 0.3s ease 0s;
+}
+
+.navbar-nav li a:hover{
+  color: blue;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+button:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+}
+
+
+
+/*나중에 시간나면 효과 넣어보기*/
+/* nav.animation {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: all .5s ease 0s;
+  border-radius: 8px;
+} */

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card {
+      width: 400px;
+      background-color: rgb(216, 197, 235);
+      text-align: center;
+    }
+    .profile {
+      box-sizing: border-box; /*테두리 기준으로 박스 사이즈 잡기*/
+      width: 400px;
+      padding: 30px;
+      position: relative;
+    }
+    
+    .image {
+      width: 100%;
+
+    }
+
+    .name {
+      position: absolute;
+      bottom: 0;
+      width: 340px;
+      background-color: bisque;
+
+    }
+  </style>
+</head>
+<body class="parent">
+  <div class="card">
+    <div class="profile">
+      <img class="image" src="profile.jpg" alt="Profile Image">
+      <p class="name">Name</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde officiis ad nostrum. Laboriosam mollitia similique provident fuga tenetur saepe sit, amet eaque neque eius quaerat expedita ea illum veniam.</p>
+  </div>
+</body>
+</html>

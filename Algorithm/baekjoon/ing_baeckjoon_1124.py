@@ -18,7 +18,6 @@ for length in range(A, B+1):  # A 부터 B 까지 정수 하나하나 불러오�
         if length % div == 0:  # 나눴을때 나머지가 없이 나눠지면
             length = length / div  # 그 값으로 나누기
             count += 1
-            div = 2
         else:
             div += 1
         
@@ -32,7 +31,7 @@ for length in range(A, B+1):  # A 부터 B 까지 정수 하나하나 불러오�
         if count % div == 0:  # 갯수가 소수일때
             result += 1  # 길이의 소수 갯수
             count = count / div  # 나눌 수 지정, 나오는게 두개일경우만
-            div = 2
+
         else:
             div += 1
 
