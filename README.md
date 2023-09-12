@@ -9,3 +9,7 @@
 ### repoitory 연동
     - git hub = origin 
     - git bal = lab
+
+
+### .gitignore 장고에 넣어야 할 키워드
+ - python Django VisualStudioCode pyCharm Windows macOS venv
