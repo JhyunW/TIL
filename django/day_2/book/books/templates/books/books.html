@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block contant %}
+
+  <h1>도서 목록</h1>
+  <hr>  <!-- 한칸 띄기 -->
+  {% for book in book_list %}  <!-- for i in arr 랑 같음-->
+    <h3>작성자 : <a href="{% url "books:author" book.author %}">{{ book.author }}</a></h3>
+    <p>책 목록 : {{ book.book_list}}</p>
+    <hr>
+  {% endfor %}
+{% endblock contant %}

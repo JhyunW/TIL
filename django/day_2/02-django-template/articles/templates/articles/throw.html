@@ -1,0 +1,10 @@
+{% extends "articles/base.html" %}
+
+{% block content %}
+<h1>Throw</h1>
+  <form action="/catch/" method="GET">  <!-- 검색할 주소 -->
+    <label for="message">메세지:</label>  <!-- 인풋 옆에 붙는 이름 주소창에 키벨류값도 붙음 -->
+    <input type="text" name = "message" id="message">  <!-- query가 붙어서 검색 -->
+    <input type="submit">
+  </form>
+{% endblock content %}

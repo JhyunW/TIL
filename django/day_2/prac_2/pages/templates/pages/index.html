@@ -1,0 +1,12 @@
+{% extends "pages/pages_base.html" %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+  <h1>PAGES INDEX PAGE</h1>
+  <a href="http://127.0.01:8000/articles">[ARTICLES]</a>  <!-- 절대주소 -->
+  <a href="/articles/">[ARTICLES]</a>  <!-- 상대주소 경로 확실히 -->
+  <a href="articles/">[ARTICLES]</a>  <!-- 상대주소 경로가 틀림-->
+  <a href="{% url "articles:index" %}">[ARTICLE]</a>  <!-- name을 지정한 페이지로 이동하는 링크 -->
+{% endblock content %}
