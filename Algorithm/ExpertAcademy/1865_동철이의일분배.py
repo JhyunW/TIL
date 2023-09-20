@@ -11,7 +11,7 @@ def percent(line, per):  # 몇번라인, 확률
     else:
         for i in range(N):  # N번 만큼 반복
             if arr[line][i] == 0:
-                return
+                continue
             else:
                 if visited[i] == 0:
                     visited[i] = 1  # 1을 칠하고 탐색 시작
