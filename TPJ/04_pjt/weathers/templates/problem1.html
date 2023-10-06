@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>문제1</h1>
+다운로드 받은 데이터 .scv를 pandas DataFrame 형식으로 저장 및 problem1.html 렌더링
+<hr>
+<table>
+  <tr>
+    {% comment %} {{ df.colums }}  <!--제목들--> {% endcomment %}
+    {% for colum in df.columns %}
+      <th> {{ colum }} </th>
+    {% endfor %}
+  </tr>
+    {% comment %} {{ df.values }}  <!-- 2차원 배열 날짜와 날씨등--> {% endcomment %}
+    {% for row in df.values %}
+    <tr>
+      {% for value in row %}
+        <td>{{ value }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock main %}
