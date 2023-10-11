@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>{{ picked }} 메뉴가 선택되었습니다.</p>
+  <p>{{ picked|length }}글자 입니다.</p>
+  <h2>메뉴판</h2>
+  <ul>
+    {% for menu in foods %}
+      <li>{{menu}}</li>
+    {% endfor %}
+  </ul>
+
+  {% if foods|length == 0 %}
+    <p>메뉴가 소진되었습니다.</p>
+  {% else %}
+    <p>메뉴가 남았습니다.</p>
+  {% endif %}
+</body>
+</html>
