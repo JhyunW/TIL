@@ -1,5 +1,5 @@
 """
-URL configuration for project project.
+URL configuration for crud project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,12 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from app_one import views  # 뷰 참조 하기
+from django.urls import path, include
+from accounts import views
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # 어드민 페이지 migrations로 테이블 만들기
-    path('articles/', views.index),  # articles앱의 views에서 함수를 호출
-    path('dinner/', views.dinner),
-    path('search/', views.search),
+    path('admin/', admin.site.urls),
+    path('articles/', include('articles.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('<int:user_pk>/password/', views.change_password, name='change_password'),
 ]

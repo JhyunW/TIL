@@ -17,3 +17,7 @@ def dinner(request):
         'picked':picked,  # picked를 부르면 랜덤 뽑기
     }
     return render(request, 'articles/dinner.html', context)
+
+
+def search(request):
+    return render(request, 'articles/search.html')
