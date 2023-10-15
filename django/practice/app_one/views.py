@@ -21,3 +21,22 @@ def dinner(request):
 
 def search(request):
     return render(request, 'articles/search.html')
+
+
+def throw(request):
+    return render(request, 'articles/throw.html')
+
+def catch (request):
+    # 사용자로부터 요청을 받아서
+    # 요청에서 사용자 입력 데이터를 찾아
+    # context에 저장 후 catch 템플릿에 출력
+    # print(request)
+    # print(type(request))
+    # print(request.GET)
+    # 여기까지가 딕셔너리 이므로 파이썬 문법으로 가져오기
+    print(request.GET.get('message'))
+    message = request.GET.get('message')
+    context = {
+        'message': message,
+    }
+    return render(request, 'articles/catch.html', context)

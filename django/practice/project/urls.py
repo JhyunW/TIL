@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from app_one import views  # 뷰 참조 하기
 
+#  urls -> views -> templates 순서 기억하기
 urlpatterns = [
     path('admin/', admin.site.urls),  # 어드민 페이지 migrations로 테이블 만들기
     path('articles/', views.index),  # articles앱의 views에서 함수를 호출
     path('dinner/', views.dinner),
     path('search/', views.search),
+    path('throw/', views.throw),
+    path('catch/', views.catch),
 ]
