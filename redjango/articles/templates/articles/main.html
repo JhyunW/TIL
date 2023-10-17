@@ -11,7 +11,7 @@
     <p>제목 : {{ article.title }}</p>
   </a>
 
-  <form action="{% url "articles:likes" article.pk %}"method="POST">
+  <form action="{% url "articles:likes" article.pk %}" method="POST">
     {% csrf_token %}
     <!-- 조건 분기 -->
     <!-- 현재 로그인 되어 있는 유저가, 이 게시글을 이전에 좋아요 누른적이 있다면 -->

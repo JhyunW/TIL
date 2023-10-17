@@ -18,7 +18,7 @@ def main(request):
     }
     # BASE_DIR/articles/templates/articles/main.html
     return render(request,
-                  'articles/main.html')
+                  'articles/main.html', context)
 
 def create(request):
     if request.method == 'POST':

@@ -56,7 +56,7 @@ ROOT_URLCONF = 'crud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'templates'],  # 베이스에 있는 템플릿 불러오기 베이스가 메인?..
+        'DIRS': [ BASE_DIR / 'templates' ],  # 베이스에 있는 템플릿 불러오기 베이스가 메인?..
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

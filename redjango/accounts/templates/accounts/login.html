@@ -1,11 +1,8 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<h1>LOGIN PAGE</h1>
+<form action="" method="POST">
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="로그인" />
+</form>
 
-{% block context %}
-  <h1>LOGIN PAGE</h1>
-  <form action="" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="로그인">
-  </form>
-
-{% endblock context %}
+{% endblock content %}

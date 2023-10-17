@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block context %}
+{% block content %}
   <h1>DETAIL PAGE</h1>
 
   <p>{{ article.pk }}번째 게시글</p>
@@ -16,4 +16,4 @@
     {% csrf_token %}
     <input type="submit" value="게시글 삭제">
   </form>
-{% endblock context %}
+{% endblock content %}
