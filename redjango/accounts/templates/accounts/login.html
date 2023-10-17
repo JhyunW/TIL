@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block context %}
+  <h1>LOGIN PAGE</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="로그인">
+  </form>
+
+{% endblock context %}

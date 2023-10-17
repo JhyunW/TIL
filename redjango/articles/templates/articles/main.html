@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>메인 페이지</h1>
+  <hr>
+  {% for article in articles %}
+  <!-- url 태그에서 요청 보내야 될 경로를 생성해야 하는데-->
+  <a href="{% url "articles:detail" article.pk %}">
+    <p>{{ article.pk }}번째 게시글</p>
+    <p>작성자 : {{ article.user.username }}</p>
+    <p>제목 : {{ article.title }}</p>
+  </a>
+
+  <form action="{% url "articles:likes" article.pk %}"method="POST">
+    {% csrf_token %}
+    <!-- 조건 분기 -->
+    <!-- 현재 로그인 되어 있는 유저가, 이 게시글을 이전에 좋아요 누른적이 있다면 -->
+    {% if request.user in article.like_users.all %}
+      <input type="submit" value="💕">  <!-- 윈도우 + . -->
+    {% else %}
+    <!-- 아니라면 -->
+      <input type="submit" value="🤍">
+    {% endif %}
+  </form>
+    <hr>
+  {% endfor %}
+{% endblock content %}
