@@ -1,0 +1,62 @@
+## 의문점
+	1 . get_user_model이 뭐이며, 어떤식으로 동작하는가 유저모델을 가져올때 동일한 함수를 가져오되 새로운 방을 가져온다 보면된다.
+	2. auth_login은 어떻게 돌아감..?
+	3. admin 등록에 대해 공부해봐야할듯;
+
+models -> urls -> views ->
+1 - 가상환경 설정과 인스톨
+2 - accounts앱 생성과 등록, .gitignore 등록
+3 - 필요 프로젝트와 app생성 후 세팅에 등록 ex) AUTH_USER_MODEL = '설정할것'
+	그 후 models.py에 author로 외래키 넣은 필드 생성
+4 - 만든 accounts의 모델.py에 유저 클래스등록, 장고의 함수인 AbstractUser등록
+5 - 새로 만든 app폴더에 동작별url경로 설정을 위해 프로젝트 url -> include를 사용해서 
+	프로젝트의 url로 이어지게 설정 등록할때 from import 잊지 말자
+6 - views.py에 행동 함수들 입력 ex) 로그인, 로그아웃, 회원가입, 글쓰기, 수정 등
+	이때 팁으로 request.user.is_authenticated 로 로그인 상황 확인가능
+7 - 불러오고, 수정하는 작업을 할때 decorators 함수 활용, 만약 회원가입 상황이면 해당하는
+	필요한 폼을 불러오는  코드를 입력
+8 - forms.py를 만들어 사용할 폼 클래스를 만들어줘야함
+	장고에서 제공하는 폼함수를 이용해서 클래스 상속, 메타상속, 모델 = get_user_model을 불러등록
+9 - views.py에서 작업하던 함수 마저 작성 만약 회원가입과 같은 함수는 if와 is_vaild()를 사용하여 유효성 검사하기
+	그리고 반환할페이지, 저장 잊지말지
+10 - 만든 뷰와 이어진 html 파일 생성
+11 - 회원가입을 만들 때 정보를 저장, 출력 등의 구현을 하는게 좀 어려웠음
+12 - 로그인폼을 만들땐 새로 로그인 폼을 받아오고, 함수내에서 포스트 받을때
+	리퀘스트와 리퀘스트.post로 받아와야함
+13 - navbar인덱스에 버튼을 추가해주고, if문과 request.user.is_authenticated를 사용하여
+	로그인 상태 유무를 확인 -> 적절한 버튼 출력
+	버튼중 로그아웃같은경우는 csrf 토큰을 넣어주고 url로 로그아웃 함수 연결
+
+14 - 게시글 생성 함수에서 유효성 검사를 한 후
+if form.is_valid():
+            board = form.save(commit=False)
+            board.author = request.user
+            board.save()
+            return redirect('boards:index')
+를 해야하는데 어떻게 돌아가는지 확인해봐야함..
+
+15 - 게시글 수정삭제는 로그인 유무에 따라 나눠서 생성
+
+16 - 게시글 수정, 삭제 할때는 
+	- 로그인이 되어있는지 확인 => user.is_authenticated 로 인증 유무 확인
+	- 로그인한 사용자가 글을 쓴 사용자와 같은지는 => if request.user == board.author 로 확인할 수 있다.
+
+17 - 댓글 작성할때
+def comment(request, board_pk):
+    board = get_object_or_404(Board, pk=board_pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.board = board
+            comment.author = request.user
+            form.save()
+            return redirect('boards:detail', board.pk)
+코드를 보면 에러 구분 -> 요청받은 메서드가 POST즉 수정사항등이 있으면
+form 안에 CommentForm의 request.POST를 넣고
+유효성 검사 -> comment라는 함수에 저장 -> 요청받은 user정보를 comment어서(유저)에 저장
+
+#### 해야할 작업
+18 - 프로필 페이지 생성 <작성한 게시글, 댓글>
+19 - 유저 팔로우 기능
+20 - 유저 좋아요 기능

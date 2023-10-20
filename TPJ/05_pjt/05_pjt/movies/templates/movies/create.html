@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>create</h1>
+  <form action="{% url "movies:create" %}" method="POST">  <!--내가 입력문을 보낼 링크-->
+    {% csrf_token %}
+    {{ movie_form.as_p }}  <!--  불러온 후, as_p를 입력하면 p태그로 감싸줌-->
+    <input type="submit" vlaue='제출'>
+  </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>INDEX PAGE</h1>
+{% for movie in movies %}
+  <p>{{ movie.title }}</p>
+  <p>{{ movie.summary }}</p>
+{% endfor %}
+
+{% endblock content %}
