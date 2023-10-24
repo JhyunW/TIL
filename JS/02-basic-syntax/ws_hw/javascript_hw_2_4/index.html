@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 재할당 가능하게 let으로 변경
+    // 일치 연산자는 암묵적 형 변환을 안해주기 때문에
+    // 5와 True는 같지 않다
+    let num = 5
+    // 동등 연산자 또는 비교연산자로 해야함
+    while (num >= 0){
+      console.log(`카운트 다운 : ${num}`)
+      // -= 할당연산자는 원본 변수의 값에 특정 값을 빼서 재할당하는 연산자.
+      num -= 1
+  }
+    // 괄호를 써주고 for of를 사용한다
+    const students = ['가', '나', '다', '라']
+    // Array는 오브젝트이다
+    for (let student of students){ 
+      console.log(student)
+    }
+    
+    // for in으로 인덱스 출력 사용
+    for (let i = 3; i >= 0; i--) {
+      console.log(students[i])
+    }
+  </script>
+</body>
+
+</html>

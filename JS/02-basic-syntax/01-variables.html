@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 재할당o 재선언x
+    // let number = 20
+    // number = 10
+    // console.log(number)
+
+    // const number = 10
+    // const number = 20
+    // console.log(number)
+
+    // 블록 스코프
+    let x = 1
+    if (x === 1){
+      let x = 2
+      console.log(x)
+    }
+    console.log(x)
+
+    // 템플릿 리터럴
+    const age = 100
+    const message = `이렇게백어쩌고${age} 세입니다`
+    console.log(message)
+  </script>
+</body>
+
+</html>

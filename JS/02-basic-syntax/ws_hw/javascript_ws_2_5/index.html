@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const citiesInfo = [
+      {
+        city: '서울',
+        utcOffset: ['한국 표준시', 'KST', 'UTC+9'],
+        latitude: 37,
+        longitude: 126
+      },
+      {
+        city: '도쿄',
+        utcOffset: ['일본 표준시', 'JST', 'UTC+9'],
+        latitude: 35,
+        longitude: 139
+      },
+      {
+        city: '상하이',
+        utcOffset: ['중국 표준시', 'CST', 'UTC+8'],
+        latitude: 31,
+        longitude: 121
+      }
+    ]
+
+    // 여기서부터
+    for (city of citiesInfo) {
+      for (detail in city) { // 딕셔너리는 in 사용시 키값 출력
+        let value = city[detail]
+        if (detail === 'city') {
+          detail = '수도'
+        }
+        if (Array.isArray(value)){// 배열비교
+          let lastIndex = value.length - 1 // 길이를 구하고
+          value = value[lastIndex] // 벨류값 넣어주기
+        }
+        console.log(`${detail} : ${value}`)
+      }
+      console.log('')
+    }
+  </script>
+</body>
+</html>
