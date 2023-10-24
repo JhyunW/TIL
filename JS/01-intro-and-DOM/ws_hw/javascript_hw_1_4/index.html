@@ -1,0 +1,91 @@
+<!-- 2단계에서 작성한 코드 활용 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>나의 포트폴리오</title>
+  <!-- link:css -> css 파일 path작성을 href -->
+  <link rel="stylesheet" href="style.css"> <!-- 링크 주는거 잊지말지 -->
+</head>
+<body>
+  <h1>안녕하세요, 제 이름은 <b id="name">홍길동</b>입니다.</h1>
+  
+  <img src="" alt="" width="200">
+  
+  <h2>소개</h2>
+  <p>저는 <b id="job">[직업/전공]</b>으로 일하고 있습니다. <b id="experience">[간단한 경력/학력]</b>을 가지고 있으며, <b>[특기 또는 관심 분야]</b>에 대해 꾸준히 공부하고 있습니다.</p>
+  
+  <h2>프로젝트</h2>
+  <ul id="list-group">
+    <li><b>프로젝트 1:</b> <span class="project-1">[프로젝트 1 제목]</span></li>
+    <li><b>프로젝트 2:</b> <span class="project-2">[프로젝트 2 제목]</span></li>
+    <li><b>프로젝트 3:</b> <span class="project-3">[프로젝트 3 제목]</span></li>
+  </ul>
+  
+  <h2>연락처</h2>
+  <p>이메일: <b id="email">[이메일 주소]</b></p>
+  <p>전화번호: <b id="phone">[전화번호]</b></p>
+
+  <script>
+    // 변수 선언하는 방법
+    // id가 name인 엘리먼트 자체를 name 변수에 할당
+    const name = document.querySelector('#name')  // 아이디를 나타내는 # 클래스를 나타내는 .
+    const job = document.querySelector('#job')
+    const experience = document.querySelector('#experience')
+    const email = document.querySelector('#email')
+    const phone = document.querySelector('#phone')
+    // python의 print와 유사한 역할을 해줄 것.
+    console.log(name, job, experience, email, phone) 
+    // ctrl+arl 아래 + ctrl+shift+방향
+    name.textContent = '투슬리스'
+    job.textContent = '고양이'
+    experience.textContent = '이집안의 귀염둥이'
+    email.textContent = 'twoslee79@naver.com'
+    phone.textContent = '010 - 4949 - 5959'
+
+    // CSS 선태택자를 따라간다 요소 자체를 선택할 수도 있다.
+    const imgTag = document.querySelector('img')
+    imgTag.src = 'cat.jpg' // 이미지 넣기
+    // 또는 imgTag.setAttribute('src', 'cat.jpg')
+    imgTag.alt = '기본이미지'  // 이미지 설명
+    // 또는 imgTag.setAttribute('alt', '기본이미지')
+    imgTag.classList.add('img') // 이미지 태그에도 클래스 부여
+
+    const bodyTag = document.querySelector('body')
+    // 클래스를 추가 하는 행위와 (.)클래스 선택자를 자주 혼동하는데..
+    // add 메서드에 전달하는 인자(문자열) 을 클래스로 만드는 행위.
+    // bodyTag가 가지고 있는 classList 변수에 [.., 'container']
+    bodyTag.classList.add('container')
+
+    const h1Tag = document.querySelector('h1') // h1 태그 선택
+    h1Tag.classList.add('title')  // 타이틀 클래스 부여
+
+    // 지금은 각 변수에 직접 할당 했는데
+    // 1. querySelectorAll로 모든 b태그를 NodeList로 가져온다
+    // 2. NodeList를 순회한다. 반복문
+    // 3. 각 노드들 중 id 값을 가지고 있는 경우에만 -> 조건문
+    // 4. classList에 highlight class를 추가한다.
+    name.classList.add('highlight')
+    job.classList.add('highlight')
+    experience.classList.add('highlight')
+    email.classList.add('highlight')
+    phone.classList.add('highlight')
+
+    // <p>전화번호: <b id="phone">[전화번호]</b></p>
+    // p 태그의 textContent -> SNS :
+    // p 태그의 자신태그 b 태그가 있고,
+    // b태그의 id == 'SNS', b태그의 textContent는 SNS정보
+
+    // p태그랑, b태그를 생성한다.
+    const pTag = document.createElement('p') // <p></p>
+    const bTag = document.createElement('b') // <b></b>
+    pTag.textContent = 'SNS : '
+
+    bTag.textContent = 'TwoS@insta'
+    bTag.id = 'sns'
+    bTag.classList.add('highlight')
+
+    pTag.appendChild(bTag)
+    bodyTag.appendChild(pTag)
+  </script>
+</body>
+</html>
