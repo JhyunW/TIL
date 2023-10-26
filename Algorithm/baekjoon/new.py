@@ -1,9 +1,4 @@
-arr = [list(map(str, input().split()))for _ in range(5)]
-color = []
-number = []
-for i in range(5):
-  color.append(arr[i][0])
-  number.append(int(arr[i][1]))
+input_string = input("문자열을 입력하세요: ")
+result_array = list(input_string)
 
-print(color)
-print(number)
+print(result_array)
