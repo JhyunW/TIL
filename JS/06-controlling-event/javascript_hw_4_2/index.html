@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <ul class="switcher">
+    <li id="grayButton"></li>
+    <li id="whiteButton"></li>
+    <li id="navyButton"></li>
+  </ul>
+  
+  <h1>Theme Switcher</h1>
+  
+  <p>테마를 바꿔봅시다.</p>
+
+  <script>
+    /* 
+      아래 이미지를 참조하여 li를 클릭하면, 아래와 같이 컬러 테마를 바꾸는 기능을 구현하시오.
+      body의 background color 와 color 를 직접 조작하여 테마를 바꾸도록 코드를 작성하시오.
+      (CSS는 변경할 필요 없음)
+      1. li#grayButton 클릭시 background-color는 gray, color는 white로 변경
+      2. li#whiteButton 클릭시 background-color는 white, color는 black으로 변경
+      3. li#navyButton 클릭시 background-color는 navy, color는 white로 변경
+    */    
+   // body 요소 선택
+   // 메서드중, 기본 제공 메서드들은 다양한 상황에 대처 할 수 있도록 만들어져 있다.
+    //  대처 가능한 모든 상황들을 목록으로 가지고 있어서, 문자열로 비교하여 사용.
+    // 바보 문자열을 필터링 하고 싶다면, "바보" 문자열이 필터링 대상 Array에 있어야 한다.
+    // 'body' 라는 문자열이 입력되었을때, 내 document에서 body Element를 찾도록 하는 행위.
+    // .이나 # 혹은 CSS selector '>' ':' '[]' 
+   const body = document.querySelector('body')
+  const btnList = document.querySelectorAll('li')  // 모든 li태그 불러오기
+  console.log(btnList)
+  //Array Helper Method
+  btnList.forEach(function (btn) {  // btn안에 버튼 리스트의 요소를 하나하나 넣어줌
+    // console.log(btn)
+    btn.addEventListener('click', function () {
+      // console.log(btn)
+      // console.log(btn.id)
+      if (btn.id === 'grayButton') {
+        body.style.backgroundColor = 'gray'
+        body.style.color = 'white'
+      }else if (btn.id === 'whiteButton') {
+        body.style.backgroundColor = 'white'
+        body.style.color = 'black'
+      } else {
+        body.style.backgroundColor = 'navy'
+        body.style.color = 'white'
+      }
+    })
+  })
+  //  const grayBtn = document.querySelector('li#grayButton')
+  //  const whiteBtn = document.querySelector('li#whiteButton')
+  //  const navyBtn = document.querySelector('li#navyButton')
+
+  //    // event 를 꼭 넣어줘야 하는가? 넣어준다면 이유는? 안넣어도 될때의 이유는?..
+  //  grayBtn.addEventListener('click', function(event) {
+  //   body.style.backgroundColor = 'gray'
+  //   body.style.color = 'white'
+  //  })
+
+  //  whiteBtn.addEventListener('click', function(event) {
+  //   body.style.backgroundColor = 'white'
+  //   body.style.color = 'black'
+  //  })
+
+  //  navyBtn.addEventListener('click', function(event) {
+  //   body.style.backgroundColor = 'navy'
+  //   body.style.color = 'white'
+  //  })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">버튼</button>
+
+  <script>
+    // 1. 버튼 선택
+    const btn = document.querySelector('#btn')  // 아이디 선택
+
+    // 롤백함수 작성
+    // const clickCallback = function (event) {
+    //   console.log(event)
+    //   console.log(event.target)
+    //   console.log(event.currentTarget)
+    //   console.log(this)
+    // } 를 입력하면 밑에 안적어도 됨
+
+    // 2. 버튼에 이벤트 핸들러를 부착 펑션에 롤백함수넣어도 오케이
+    btn.addEventListener('click', function(event) {
+      console.log(event)
+      console.log(event.target)
+      console.log(event.currentTarget)
+      console.log(this)
+    })  //콘솔에 btn을 호출하는 콜백 함수 작성
+  </script>
+</body>
+
+</html>

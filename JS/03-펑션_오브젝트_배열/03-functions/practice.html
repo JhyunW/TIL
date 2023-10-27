@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 정의하는 방법
+    // 선언형
+    function some() {
+      console.log('test')
+      return
+    }
+    // 함수 호출
+    some()
+    // 함수 호출 결과 return 값을 다른 값에 저장
+    let result = some()
+    console.log(result)  // 언디파인드 반환
+
+    // 함수 표현식
+    function other_func = function other() {return 'string'}
+    console.log(other_func)
+
+    // 익명 함수
+    function other_func2 = function () {return 'string'}
+    console.log(other_func2)
+
+    // 화살표 함수
+    // 함수로써 기능하기 위해 필요한 내용물은 모두 남겨놔야 함.
+    // 매개변수의 유무 -> input에 대한 output
+      // 매개변수가 하나라면 ()로 안묶어줘도 됨
+    // 함수를 정의한다 라는 의미로 나타낼 =>
+    // 함수 동작 코드 -> {}
+      // 실제 동작 코드 : return
+      // 실제 동작 코드가 표현식 하나의 반환이라면 return, {} 도 생략 가능
+    let arrow_func = () => 'string'  // string이라는 문자를 반환
+    let arrow_func2 = args => args ** 2
+
+    let arrow_func3 = (args, args_2) => {
+      args += 1
+      args_2 = args * 2
+      return regs / args_2
+    }
+    object.method()
+    
+    // 심볼 타입 -> immutable 값으로 key 
+    let new_object = {
+      'Tony' : 'Iron',
+      'Man' : 'man'
+    }
+    new_object['Tony']
+    new_object.Man
+
+    
+  </script>
+</body>
+</html>
