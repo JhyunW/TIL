@@ -1,0 +1,24 @@
+{% block content %}
+  {% for article in articles %}
+    <form class="likes-forms" data-article-id="{{ article.pk }}">
+      {% csrf_token %}
+      {% if request.user in article.like_users.all %}
+        <input type="submit" value="좋아요 취소" id="like-{{ article.pk }}">
+      {% else %}
+        <input type="submit" value="좋아요" id="like-{{ article.pk }}">
+      {% endif %}
+    </form>
+  {% endfor %}
+{% endblock %}
+
+{% block script %}
+const forms = document.querySelectorAll('.like-form')
+forms.forEach(function (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault()
+    const articleId = event.target.dataset.articleId
+		//...//
+    })
+})
+
+{% endblock %}

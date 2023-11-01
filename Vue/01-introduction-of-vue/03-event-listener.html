@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="increment">{{ count }}</button>
+    <!-- v-on의 축약형은 @ 이다. -->
+    <button @click="increment">{{ count }}</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const { createApp,ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const count = ref(0)
+        const increment = function() {
+          count.value++  // 카운트는 ref객체임, 그 안에 있는 벨류값을 만져야 함
+        }
+        return {
+          count,
+          increment
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
