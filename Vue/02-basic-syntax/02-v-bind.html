@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <img v-bind:src="imageSrc" alt="#">  <!-- 자바스크립트를 넣고싶다! 할때 -->
+    <a v-bind:href="myUrl">Link</a>
+    <!--v-bind생략하고  : 만으로도 사용 가능-->
+    <img :src="imageSrc" alt="#">  <!-- 자바스크립트를 넣고싶다! 할때 -->
+    <a :href="myUrl">Link</a>
+    <p :[dynamicatter]=""dynamicValue>...</p> <!-- 대괄호에 들어가는건 카멜케이스 안됨 -->
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const imageSrc = ref('https://picsum.photos/200/')
+        const myUrl = ref('https://www.google.co.kr/')
+        const dynamicatter = ref('title')
+        const dynamicValue = ref('Hello')
+        return {
+          imageSrc,
+          myUrl,
+          dynamicatter,
+          dynamicValue,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
